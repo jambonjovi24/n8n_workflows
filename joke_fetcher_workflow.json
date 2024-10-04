@@ -1,0 +1,75 @@
+{
+  "name": "joke fetcher workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "587254bc-8706-434d-8150-0ab3580b28e4",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        560,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://official-joke-api.appspot.com/random_joke",
+        "options": {}
+      },
+      "id": "37e1d871-c800-42f1-970a-18774715cace",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            },
+            {}
+          ]
+        }
+      },
+      "id": "b01e04bf-1440-4780-9c39-65acbae11408",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        1000,
+        280
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a1f3b520-6e2c-4bec-8be7-d3319492fd82",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7302ee034e12a5178efd4697599d4b2945b84cac438001ff82d17dd80cab1343"
+  },
+  "id": "TA8uNZoW2xSOLOAt",
+  "tags": []
+}
